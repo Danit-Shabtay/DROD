@@ -1,6 +1,4 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
+﻿@{ ViewData["Title"] = "Home Page"; }
 
 <div class="text-center">
     <font color="white">
@@ -12,23 +10,23 @@
     </font>
 </div>
 
-
+<!-- The three categories that appear on the main page -->
 <div class="container d-flex justify-content-center" style="margin-top:30px">
     <div class="row text-center">
         <div class="col-sm">
             <div class="card" style="width: 16rem;">
                 <div class="card-body">
-                    <h5>Women STYLE</h5>
+                    <h5>Women's fashion</h5>
                     <a asp-area="" asp-controller="Home" asp-action="WOMEN">
                         <img src="../imgs/WomenStyle.gif" alt="Shirts" style="width:210px; height:150px;">
                     </a>
                 </div>
             </div>
         </div>
-        <div class="col-sm" >
+        <div class="col-sm">
             <div class="card" style="width: 16rem;">
                 <div class="card-body">
-                    <h5>Men STYLE</h5>
+                    <h5>Men's fashion</h5>
                     <a asp-area="" asp-controller="Home" asp-action="MEN">
                         <img src="../imgs/MenStyle.gif" alt="Pants" style="width:150px; height:150px;">
                     </a>
