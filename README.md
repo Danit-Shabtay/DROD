@@ -22,7 +22,7 @@ JQuery          |                |
 Bootstrap       |                |
 Facebook API    |                |
 Google Maps API |                |
-D3.js | |
+D3.js           |                |
 
 ---
 
@@ -31,7 +31,7 @@ D3.js | |
 
 ---
 
-### Credits
+### Credit
 Course lecturer [Shay Horovitz](https://www.linkedin.com/in/shay-horovitz-25bb31/)
 
 ---
