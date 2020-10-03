@@ -32,7 +32,7 @@ D3.js           |                |
 ---
 
 ### Credit
-Course lecturer [Shay Horovitz](https://www.linkedin.com/in/shay-horovitz-25bb31/)
+Head of Data Science Track & Course Instructor [Dr. Shay Horovitz](https://www.linkedin.com/in/shay-horovitz-25bb31/)
 
 ---
 
@@ -46,4 +46,6 @@ Course lecturer [Shay Horovitz](https://www.linkedin.com/in/shay-horovitz-25bb31
 - [ ] Integration with Google maps API for displaying user locations
 - [ ] Integration with Facebook API for login and registration
 - [ ] Learn users statistics and provide recommendations 
+
 ---
+
