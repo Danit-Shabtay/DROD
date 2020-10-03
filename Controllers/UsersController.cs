@@ -10,22 +10,30 @@ using DROD.Models;
 
 namespace DROD.Controllers
 {
-    public class CustomersController : Controller
+    public class UsersController : Controller
     {
         private readonly MvcDRODContext _context;
 
-        public CustomersController(MvcDRODContext context)
+        public UsersController(MvcDRODContext context)
         {
             _context = context;
         }
 
-        // GET: Customers
-        public async Task<IActionResult> Index()
+
+        // GET: Users/Login
+        public IActionResult Login()
         {
-            return View(await _context.Customers.ToListAsync());
+            return View();
         }
 
-        // GET: Customers/Details/5
+
+        // GET: Users
+        public async Task<IActionResult> Index()
+        {
+            return View(await _context.Users.ToListAsync());
+        }
+
+        // GET: Users/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -33,7 +41,7 @@ namespace DROD.Controllers
                 return NotFound();
             }
 
-            var customers = await _context.Customers
+            var customers = await _context.Users
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (customers == null)
             {
@@ -43,29 +51,29 @@ namespace DROD.Controllers
             return View(customers);
         }
 
-        // GET: Customers/Create
+        // GET: Users/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Customers/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // POST: Users/Create
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("FirstName,LastName,Id,Email,Age,Genre")] Customers customers)
+        public async Task<IActionResult> Create([Bind("FirstName,LastName,Id,Email,Age,Genre")] Users users)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(customers);
+                _context.Add(users);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(customers);
+            return View(users);
         }
 
-        // GET: Customers/Edit/5
+        // GET: Users/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -73,7 +81,7 @@ namespace DROD.Controllers
                 return NotFound();
             }
 
-            var customers = await _context.Customers.FindAsync(id);
+            var customers = await _context.Users.FindAsync(id);
             if (customers == null)
             {
                 return NotFound();
@@ -81,14 +89,14 @@ namespace DROD.Controllers
             return View(customers);
         }
 
-        // POST: Customers/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
+        // POST: Users/Edit/5
+        // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("FirstName,LastName,Id,Email,Age,Genre")] Customers customers)
+        public async Task<IActionResult> Edit(int id, [Bind("FirstName,LastName,Id,Email,Age,Genre")] Users users)
         {
-            if (id != customers.Id)
+            if (id != users.Id)
             {
                 return NotFound();
             }
@@ -97,12 +105,12 @@ namespace DROD.Controllers
             {
                 try
                 {
-                    _context.Update(customers);
+                    _context.Update(users);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!CustomersExists(customers.Id))
+                    if (!UsersExists(users.Id))
                     {
                         return NotFound();
                     }
@@ -113,10 +121,10 @@ namespace DROD.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(customers);
+            return View(users);
         }
 
-        // GET: Customers/Delete/5
+        // GET: Users/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -124,7 +132,7 @@ namespace DROD.Controllers
                 return NotFound();
             }
 
-            var customers = await _context.Customers
+            var customers = await _context.Users
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (customers == null)
             {
@@ -134,20 +142,20 @@ namespace DROD.Controllers
             return View(customers);
         }
 
-        // POST: Customers/Delete/5
+        // POST: Users/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var customers = await _context.Customers.FindAsync(id);
-            _context.Customers.Remove(customers);
+            var customers = await _context.Users.FindAsync(id);
+            _context.Users.Remove(customers);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool CustomersExists(int id)
+        private bool UsersExists(int id)
         {
-            return _context.Customers.Any(e => e.Id == id);
+            return _context.Users.Any(e => e.Id == id);
         }
     }
 }
