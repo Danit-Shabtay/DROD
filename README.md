@@ -27,7 +27,7 @@ D3.js           |                |
 ---
 
 ### Demo
-<img src="DRODgif.gif" width=600>
+<img src="DRODgif.gif" width=700>
 
 ---
 
