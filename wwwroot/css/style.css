@@ -4,11 +4,11 @@
 
 .line-1 {
 position: relative;
-top: 50%;
+top: 40%;
 width: 24em;
 margin: 0 auto;
 border-right: 2px solid rgba(255,255,255,.75);
-font-size: 200%;
+font-size: 170%;
 text-align: center;
 white-space: nowrap;
 overflow: hidden;
@@ -42,7 +42,6 @@ to {
 
 
 /* The Contact page*/
-
 body {
 font-family: Arial, Helvetica, sans-serif;
 margin: 0;

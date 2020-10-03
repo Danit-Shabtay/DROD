@@ -62,11 +62,11 @@ body {
     /* Margin bottom by footer height */
     margin-bottom: 60px;
     /* background-image */
-    background-image: url(../imgs/back.png);
+    background-image: url(../imgs/back1.png);
     background-position: center;
     background-attachment: fixed;
     background-repeat: no-repeat;
-    background-size: 90%;
+    background-size: 92%;
     width: 100%;
     height: 100%;
 }
