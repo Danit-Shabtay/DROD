@@ -16,6 +16,7 @@ as part of our B.Sc. Computer Science studies.
 Frontend        | Backend | DB
 ------------    | ------------- | ------------- 
 Java Script     | C# | MS SQL Server
+AJAX            ||
 Bootstrap       | MVC | Entity Framework
 JQuery          | |
 HTML & CSS      |  |
@@ -30,6 +31,9 @@ D3.js | |
 <img src="DRODgif.gif" width=600>
 ---
 
+### Credits
+Course lecturer [Shay Horovitz](https://www.linkedin.com/in/shay-horovitz-25bb31/)
+
 ### TODO
 - [X] Create basic project - Models, Controllers, View
 - [X] Database integration using Entity Framework and MS SQL Server
@@ -39,5 +43,5 @@ D3.js | |
 - [ ] Create user statistics view using D3.js
 - [ ] Integration with Google maps API for displaying user locations
 - [ ] Integration with Facebook API for login and registration
-
+- [ ] Learn users statistics and provide recommendations 
 ---
