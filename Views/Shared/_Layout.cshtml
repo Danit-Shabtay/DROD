@@ -33,12 +33,26 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="CONTACT">CONTACT</a>
                         </li>
                         <li class="nav-item ml-auto">
-                            <a href="http://localhost:56798/users/login";>Login</a> ♡ <a href="#">Register</a>
+
                             <!-- Song -->
-                            @*<audio controls autoplay>
-                            <source src="music/KOKO.mp3" type="audio/mp3">
-                            If you're reading this, audio isn't supported.
-                            </audio>*@
+                            <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+                            <audio autoplay>
+                              <source src="music/KOKO.mp3" type="audio/mp3">
+                              Your browser does not support the audio element.
+                            </audio>
+                            <div class="player">
+                                <div class="playpause">
+                                <i class="play fa fa-play-circle" aria-hidden="true"></i>
+                                <i class="pause fa fa-pause-circle" aria-hidden="true"></i>
+                                </div>
+                                <div class="scrubber">
+                                    <div class="bar">
+                                        <div class="position-marker"></div>
+                                    </div>
+                                    <!-- Login and Register -->
+                                    <a href="http://localhost:56798/users/Login" ;>Login</a> ♡ <a href="http://localhost:56798/users/Register" ;>Register</a>
+                                </div>
+                            </div>
                         </li>
                     </ul>
                 </div>
@@ -54,7 +68,7 @@
     <footer class="border-top footer text-muted">
         <div class="container">
             &copy; 2020 - DROD <a asp-area="" asp-controller="Home"></a>
-            <a href="https://pic.sopili.net/lnk/-/email-html/show/?text=example%40gmail.com" target="_blank">DROD@gmail.com</a>
+            <a href="mailto: DRODIsrael@gmail.com">Email us</a>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

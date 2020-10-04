@@ -25,6 +25,5 @@ namespace DROD.Models
         {
             return this.FirstName + " " + this.LastName;
         }
-
     }
 }

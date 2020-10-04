@@ -1,14 +1,16 @@
 ﻿@model DROD.Models.Users
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Login";
 }
 
-<div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
+
 <div class="col-lg-6">
     <div class="p-5">
         <div class="text-center">
-            <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
+            <font color="white">
+                <h1 class="h4 " white" mb-4">Welcome ♡</h1>
+            </font>
         </div>
         <form class="user" asp-action="Login" autocomplete="off">
             @if (ViewData["error"] != null)
@@ -27,9 +29,36 @@
                 Login
             </button>
         </form>
-        <hr>
         <div class="text-center">
-            <a class="small" asp-action="Register">Create an Account!</a>
+            <a class="medium" asp-action="Register">Create an Account!</a>
         </div>
+    </div>
+</div>
+
+<div class="col-lg-6">
+
+</div>
+
+<!-- Images -->
+<div class="container d-flex justify-content-center">
+    <div class="row text-center">
+
+        <div class="col-sm">
+            <img src="../imgs/image2.JPEG" alt="Shirts" style="width:220px; height:300px;">
+        </div><br />
+
+        <div class="col-sm">
+            <img src="../imgs/image4.JPEG" alt="Pants" style="width:220px; height:300px;">
+        </div><br />
+
+        <div class="col-sm">
+            <img src="../imgs/image1.JPEG" alt="" style="width:220px; height:300px;">
+        </div>
+
+        <div class="col-sm">
+            <img src="../imgs/image3.JPEG" alt="" style="width:220px; height:300px;">
+        </div>
+
+        <p style="margin-top:350px"></p>
     </div>
 </div>

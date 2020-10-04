@@ -24,8 +24,7 @@ a {
   border-color: #1861ac;
 }
 
-/* Sticky footer styles
--------------------------------------------------- */
+/* Sticky footer styles */
 html {
   font-size: 14px;
 }
@@ -51,8 +50,7 @@ button.accept-policy {
   line-height: inherit;
 }
 
-/* Sticky footer styles
--------------------------------------------------- */
+/* Sticky footer styles */
 html {
   position: relative;
   min-height: 100%;
@@ -79,5 +77,55 @@ body {
 }
 
 
+/* Song */
+.player {
+  width: 300px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
 
+  .playpause {
+    cursor: pointer;
 
+    img {
+      height: 32px;
+      width: auto;
+    }
+
+    .pause {
+      display: none;
+    }
+  }
+
+  .scrubber {
+    .bar {
+      height: 4px;
+      width: 180px;
+      background: lightgray;
+      border-radius: 2px;
+      cursor: pointer;
+    }
+
+    .position-marker {
+      background: red;
+      border-radius: 50%;
+      height: 6px;
+      width: 6px;
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%) scale(1.5);
+    }
+  }
+
+  .elapsed {
+    span {
+      font-family: "Open Sans";
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 18px;
+      letter-spacing: normal;
+      color: red;
+    }
+  }
+}
