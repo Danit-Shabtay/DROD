@@ -25,8 +25,9 @@ namespace DROD
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
             services.AddDbContext<MvcDRODContext>(options=>
-            options.UseSqlServer(Configuration.GetConnectionString("MvcDRODContext")));//we added this line!!!
+            options.UseSqlServer(Configuration.GetConnectionString("MvcDRODContext")));
 
         }
 

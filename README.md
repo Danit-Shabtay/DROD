@@ -31,7 +31,7 @@ D3.js           |                |
 
 ---
 
-### Credit
+### Credit 
 Head of Data Science Track & Course Instructor [Dr. Shay Horovitz](https://www.linkedin.com/in/shay-horovitz-25bb31/)
 
 ---
