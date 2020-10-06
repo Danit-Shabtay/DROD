@@ -25,6 +25,12 @@ namespace DROD.Controllers
             return View(await _context.Items.ToListAsync());
         }
 
+        // GET: Women page
+        public async Task<IActionResult> WOMEN()
+        {
+            return View(await _context.Items.ToListAsync());
+        }
+
         // GET: Items/Details/5
         public async Task<IActionResult> Details(int? id)
         {

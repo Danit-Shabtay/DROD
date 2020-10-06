@@ -1,0 +1,55 @@
+﻿@model IEnumerable<DROD.Models.Items>
+
+@{
+    ViewData["Title"] = "Women";
+}
+
+<!-- Images -->
+<div class="container d-flex justify-content-center" style="margin-top:50px">
+    <div class="row text-center">
+
+        <div class="col-sm">
+            <img src="../imgs/W1.JPEG" alt="Shirts" style="width:250px; height:350px;" aria-label="ASOS 4505 longline scoop neck sports bra, Price: ILS85.00">
+        </div><br />
+
+        <div class="col-sm">
+            <img src="../imgs/W2.JPEG" alt="Pants" style="width:250px; height:350px;">
+        </div><br />
+
+        <div class="col-sm">
+            <img src="../imgs/W3.JPEG" alt="Shoes" style="width:250px; height:350px;">
+        </div>
+
+        <!-- Sentence-->
+        <div class="text-center">
+            <font color="white">
+                <p class="" style="margin-top:100px">
+                    <h1><strong>Style</strong></h1>
+                    <h1><strong>is</strong></h1>
+                    <h1><strong>forever</strong></h1>
+                </p>
+            </font>
+        </div>
+
+        <div class="col-sm">
+            <img src="../imgs/W4.JPEG" alt="Shoes" style="width:250px; height:350px;">
+        </div><br />
+
+        <div class="col-sm">
+            <img src="../imgs/W5.JPEG" alt="Shoes" style="width:250px; height:350px;">
+        </div><br />
+
+        <div class="col-sm">
+            <img src="../imgs/W9.JPEG" alt="Shoes" style="width:250px; height:350px;">
+        </div><br />
+
+        <p style="margin-top:400px"></p>
+    </div>
+</div>
+
+@foreach (var item in Model)
+{
+    <p>
+        @Html.DisplayFor(modelItem => item.ItemName)
+    </p>
+}
