@@ -12,12 +12,12 @@ namespace DROD.Migrations
                 columns: new[] { "ItemName", "Price", "Gender", "Path" },
                 values: new object[,]
                 {
-                    { "W1", 59, ItemType.Women, "../imgs/W1.JPEG"},
-                    { "W2", 89, ItemType.Women, "../imgs/W2.JPEG"},
-                    { "W3", 78, ItemType.Women, "../imgs/W3.JPEG"},
-                    { "W4", 89, ItemType.Women, "../imgs/W4.JPEG"},
-                    { "W5", 119, ItemType.Women, "../imgs/W5.JPEG"},
-                    { "W6", 109, ItemType.Women, "../imgs/W6.JPEG"}
+                    { "W1", 59, 1, "../imgs/W1.JPEG"},
+                    { "W2", 89, 1, "../imgs/W2.JPEG"},
+                    { "W3", 78, 1, "../imgs/W3.JPEG"},
+                    { "W4", 89, 1, "../imgs/W4.JPEG"},
+                    { "W5", 119, 1, "../imgs/W5.JPEG"},
+                    { "W6", 109, 1, "../imgs/W6.JPEG"}
                 }
             );
         }
