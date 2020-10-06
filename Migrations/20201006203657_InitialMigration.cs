@@ -2,7 +2,7 @@
 
 namespace DROD.Migrations
 {
-    public partial class ChangeFromCustomerToUser : Migration
+    public partial class InitialMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -12,7 +12,8 @@ namespace DROD.Migrations
                 {
                     ID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    ItemName = table.Column<string>(nullable: true)
+                    ItemName = table.Column<string>(nullable: true),
+                    Price = table.Column<double>(nullable: false)
                 },
                 constraints: table =>
                 {

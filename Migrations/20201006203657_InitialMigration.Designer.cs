@@ -3,14 +3,16 @@ using DROD.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DROD.Migrations
 {
     [DbContext(typeof(MvcDRODContext))]
-    partial class MvcDRODContextModelSnapshot : ModelSnapshot
+    [Migration("20201006203657_InitialMigration")]
+    partial class InitialMigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -25,13 +27,7 @@ namespace DROD.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<int>("Gender")
-                        .HasColumnType("int");
-
                     b.Property<string>("ItemName")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Path")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<double>("Price")

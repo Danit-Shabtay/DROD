@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DROD.Migrations
 {
     [DbContext(typeof(MvcDRODContext))]
-    [Migration("20201003151223_ChangeFromCustomerToUser")]
-    partial class ChangeFromCustomerToUser
+    [Migration("20201006211624_AddGenderAndPathToItem")]
+    partial class AddGenderAndPathToItem
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -27,8 +27,17 @@ namespace DROD.Migrations
                         .HasColumnType("int")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
+                    b.Property<int>("Gender")
+                        .HasColumnType("int");
+
                     b.Property<string>("ItemName")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Path")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<double>("Price")
+                        .HasColumnType("float");
 
                     b.HasKey("ID");
 
