@@ -22,16 +22,6 @@ namespace DROD.Controllers
         {
             return View();
         }
-
-        public IActionResult WOMEN()
-        {
-            return View();
-        }
-
-        public IActionResult MEN()
-        {
-            return View();
-        }
         public IActionResult Shoes()
         {
             return View();
