@@ -28,13 +28,19 @@ namespace DROD.Controllers
         // GET: Women page
         public async Task<IActionResult> WOMEN()
         {
-            return View(await _context.Items.ToListAsync());
+            IEnumerable<DROD.Models.Items> womenItems = await _context.Items
+                .Where(item => item.Gender == ItemType.Women).ToListAsync();
+
+            return View(womenItems);
         }
 
         // GET: Men page
         public async Task<IActionResult> MEN()
         {
-            return View(await _context.Items.ToListAsync());
+            IEnumerable<DROD.Models.Items> menItems = await _context.Items
+                .Where(item => item.Gender == ItemType.Men).ToListAsync();
+
+            return View(menItems);
         }
 
         // GET: Items/Details/5
