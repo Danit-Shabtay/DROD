@@ -8,7 +8,8 @@ namespace DROD.Models
     public enum ItemType
     {
         Men,
-        Women
+        Women,
+        Shoes
     }
 
     public class Items

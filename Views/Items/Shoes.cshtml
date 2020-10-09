@@ -1,0 +1,58 @@
+﻿@model IEnumerable<DROD.Models.Items>
+
+@{
+    ViewData["Title"] = "Shoes";
+}
+
+
+<!-- Sentence-->
+<div class="text-center">
+    <font color="white">
+        <p class="" style="margin-top:120px">
+            <h1><strong>You are beautiful</strong></h1>
+            <h1><strong>with the right shoes</strong></h1>
+        </p>
+    </font>
+</div>
+
+<!-- Images -->
+<div class="container d-flex justify-content-center" style="margin-top:50px">
+    <div class="row text-center">
+
+        @foreach (var item in Model)
+        {
+            <div class="col-sm">
+                <img src=@Html.DisplayFor(modelItem => item.Path)
+                     alt="Shoes item"
+                     style="width:220px; height:300px;">
+                <br />
+                <p style="color:aliceblue">
+                    <strong>
+                        @Html.DisplayFor(modelItem => item.ItemName) |
+                        @Html.DisplayFor(modelItem => item.Price) $
+                    </strong>
+                </p>
+            </div>
+        }
+    </div>
+</div>
+
+<!-- Sentence-->
+<div class="text-center">
+    <font color="white">
+        <p class="" style="margin-top:50px">
+            <h2><strong>Our Shoes Is The Best !</strong></h2>
+        </p>
+    </font>
+</div>
+
+<!-- Video -->
+<div class="text-center">
+    <video width="730" height="410" controls>
+        <source src="../imgs/Shoes1.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+</div>
+<br />
+<hr />
+

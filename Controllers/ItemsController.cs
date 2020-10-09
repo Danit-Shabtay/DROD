@@ -43,6 +43,15 @@ namespace DROD.Controllers
             return View(menItems);
         }
 
+        // GET: Shoes page
+        public async Task<IActionResult> Shoes()
+        {
+            IEnumerable<DROD.Models.Items> shoesItems = await _context.Items
+                .Where(item => item.Gender == ItemType.Shoes).ToListAsync();
+
+            return View(shoesItems);
+        }
+
         // GET: Items/Details/5
         public async Task<IActionResult> Details(int? id)
         {

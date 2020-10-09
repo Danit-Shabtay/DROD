@@ -5,8 +5,18 @@
 }
 
 
+<!-- Sentence-->
+<div class="text-center">
+    <font color="white">
+        <p class="" style="margin-top:120px">
+            <h1><strong>I'm Sexy and I know it</strong></h1>
+        </p>
+    </font>
+</div>
+<br />
+
 <!-- Images -->
-<div class="container d-flex justify-content-center" style="margin-top:50px">
+<div class="container d-flex justify-content-center">
     <div class="row text-center">
 
         @foreach (var item in Model)
@@ -17,25 +27,15 @@
                      style="width:220px; height:300px;">
                 <br />
                 <p style="color:aliceblue">
-                    @Html.DisplayFor(modelItem => item.ItemName) ||
-                    @Html.DisplayFor(modelItem => item.Price)$
+                    <strong>
+                        @Html.DisplayFor(modelItem => item.ItemName) |
+                        @Html.DisplayFor(modelItem => item.Price) $
+                    </strong>
                 </p>
             </div>
         }
-
-        <!-- Sentence-->
-        <div class="text-center">
-            <font color="white">
-                <p class="" style="margin-top:100px">
-                    <h1><strong>I'm Sexy and</strong></h1>
-                    <h1><strong>I know it</strong></h1>
-                </p>
-            </font>
-        </div>
-        <p style="margin-top:400px"></p>
     </div>
 </div>
-
 
 <!-- Sentence-->
 <div class="text-center">
@@ -46,10 +46,9 @@
     </font>
 </div>
 
-
 <!-- Video -->
 <div class="text-center">
-    <video width="800" height="400" controls>
+    <video width="730" height="410" controls>
         <source src="../imgs/TheFuture1.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
