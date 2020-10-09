@@ -1,57 +1,27 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{ }
+﻿@model IEnumerable<DROD.Models.Items>
+
+@{
+    ViewData["Title"] = "Men";
+}
 
 
+<!-- Images -->
 <div class="container d-flex justify-content-center" style="margin-top:50px">
     <div class="row text-center">
 
-        <!-- Sentence-->
-        <div class="text-center">
-            <font color="white">
-                <p class="" style="margin-top:100px">
-                    <h2><strong>The Future Is Here !</strong></h2>
+        @foreach (var item in Model)
+        {
+            <div class="col-sm">
+                <img src=@Html.DisplayFor(modelItem => item.Path)
+                     alt="en item"
+                     style="width:220px; height:300px;">
+                <br />
+                <p style="color:aliceblue">
+                    @Html.DisplayFor(modelItem => item.ItemName) ||
+                    @Html.DisplayFor(modelItem => item.Price)$
                 </p>
-            </font>
-        </div>
-        <br />
-        <hr />
-
-        <!-- Video -->
-        <div class="text-center">
-            <video width="800" height="400" controls>
-                <source src="../imgs/TheFuture1.mp4" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
-        </div>
-        <br />
-        <hr />
-
-        <!-- Images -->
-        <div class="col-sm">
-            <img src="../imgs/M1.JPEG" alt="Shirts" style="width:250px; height:350px;">
-        </div><br />
-
-        <div class="col-sm">
-            <img src="../imgs/M2.JPEG" alt="Pants" style="width:250px; height:350px;">
-        </div><br />
-
-        <div class="col-sm">
-            <img src="../imgs/M3.JPEG" alt="Shoes" style="width:250px; height:350px;">
-        </div><br />
-
-        <div class="col-sm">
-            <img src="../imgs/M5.JPEG" alt="Shoes" style="width:250px; height:350px;">
-        </div><br />
-
-        <div class="col-sm">
-            <img src="../imgs/M6.JPEG" alt="Shoes" style="width:250px; height:350px;">
-        </div><br />
-
-        <div class="col-sm">
-            <img src="../imgs/M7.JPEG" alt="Shoes" style="width:250px; height:350px;">
-        </div><br />
+            </div>
+        }
 
         <!-- Sentence-->
         <div class="text-center">
@@ -62,9 +32,27 @@
                 </p>
             </font>
         </div>
-
         <p style="margin-top:400px"></p>
     </div>
 </div>
 
 
+<!-- Sentence-->
+<div class="text-center">
+    <font color="white">
+        <p class="" style="margin-top:50px">
+            <h2><strong>The Future Is Here !</strong></h2>
+        </p>
+    </font>
+</div>
+
+
+<!-- Video -->
+<div class="text-center">
+    <video width="800" height="400" controls>
+        <source src="../imgs/TheFuture1.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+</div>
+<br />
+<hr />
