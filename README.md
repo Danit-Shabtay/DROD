@@ -29,8 +29,6 @@ D3.js           |                |
 ### Demo
 <img src="DROD.gif" width=700>
 
-<img src="DROD1.gif" width=700>
-
 ---
 
 ### Credit 
