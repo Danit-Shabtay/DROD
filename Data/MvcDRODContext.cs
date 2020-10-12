@@ -9,7 +9,6 @@ namespace DROD.Data
 {
     public class MvcDRODContext: DbContext
     {
-        // Need to understand
         public MvcDRODContext(DbContextOptions<MvcDRODContext > options): base(options)
         {
         }
@@ -17,7 +16,5 @@ namespace DROD.Data
         public DbSet<Users> Users { get; set; }
         public DbSet<Orders> Orders { get; set; }
         public DbSet<Items> Items { get; set; }
-
-
     }
 }

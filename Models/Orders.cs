@@ -7,7 +7,6 @@ namespace DROD.Models
 {
     public class Orders
     {
-
         public int ID { get; set; }
         public int OrderId { get; set; }
         public int ItemId { get; set; }
