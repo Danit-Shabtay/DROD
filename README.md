@@ -1,10 +1,11 @@
-## DROD
+<div align="center"> <img align="center" alt="dschackfest2020" src="DROD1.PNG" height='100' width='250'></div>
+
 
 <p align="left">
 <img src="https://img.shields.io/badge/status-InProgress-yellow.svg">
 </p>
 
-Online Shopping App.
+##### Online Shopping App.
 
 ### Background
 Final project in Web application development course
@@ -48,4 +49,3 @@ Head of Data Science Track & Course Instructor [Dr. Shay Horovitz](https://www.l
 - [ ] Learn users statistics and provide recommendations 
 
 ---
-
