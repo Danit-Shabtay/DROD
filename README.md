@@ -1,7 +1,7 @@
 <div align="center"> <img src="DROD1.png" height='150' width='330'></div>
 
 ## Online Shopping App 
-:moneybag: :money_with_wings:
+:moneybag: :moneybag: :moneybag:
 
 <p align="left">
 <img src="https://img.shields.io/badge/status-InProgress-yellow.svg">
@@ -34,7 +34,7 @@ D3.js           |                |
 ---
 
 ### Credit 
-Head of Data Science Track & Course Instructor [Dr. Shay Horovitz](https://www.linkedin.com/in/shay-horovitz-25bb31/)
+Head of Data Science Track & Course Instructor [Dr. Shay Horovitz](https://www.linkedin.com/in/shay-horovitz-25bb31/) :crown:
 
 ---
 
