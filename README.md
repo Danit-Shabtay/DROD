@@ -1,4 +1,4 @@
-<div align="center"> <img src="DROD1.png" height='100' width='250'></div>
+<div align="center"> <img src="DROD1.png" height='150' width='300'></div>
 
 
 <p align="left">
