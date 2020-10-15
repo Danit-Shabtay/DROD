@@ -1,6 +1,7 @@
-<div align="center"> <img src="DROD1.png" height='130' width='280'></div>
+<div align="center"> <img src="DROD1.png" height='110' width='260'></div>
 
-Online Shopping App :moneybag: :moneybag: :moneybag:
+## Online Shopping App
+:moneybag: :moneybag: :moneybag:
 
 <p align="left">
 <img src="https://img.shields.io/badge/status-InProgress-yellow.svg">
