@@ -1,4 +1,4 @@
-<div align="center"> <img src="DROD1.png" height='110' width='260'></div>
+<div align="center"> <img src="DROD1.png" height='80' width='160'></div>
 
 ## Online Shopping App
 :moneybag: :moneybag: :moneybag:

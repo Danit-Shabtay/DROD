@@ -1,48 +1,97 @@
 ﻿@{ ViewData["Title"] = "Home Page"; }
 
-
-<p style="margin-top:120px">
-
-    <!-- The three categories that appear on the main page -->
-    <div class="container d-flex justify-content-center" style="margin-top:50px">
-        <div class="row text-center">
-            <div class="col-sm">
-                <div class="card" style="width: 16rem;">
-                    <div class="card-body">
-                        <h5>Women's fashion</h5>
-                        <a asp-area="" asp-controller="Items" asp-action="Women">
-                            <img src="../images/WomenStyle.gif" alt="Shirts" style="width:210px; height:150px;">
-                        </a>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DROD Fashion - Personal Website</title>
+    <!--main css file should not be removed -->
+    <link rel="stylesheet" href="css/index.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/gsap.min.js"></script>
+</head>
+<body>
+    <!--contains all the div-->
+    <div id="all">
+        <!--mouse  follower-->
+        <div class="cursor"></div>
+        <!--mouse  follower-->
+        <!--loader-->
+        <div id="loader">
+            <span class="color">DROD</span>Fashion
+        </div>
+        <!--loader-end-->
+        <!--link-screen-->
+        <div id="breaker">
+        </div>
+        <div id="breaker-two">
+        </div>
+        <!--Header-->
+        <div id="header">
+            <div id="particles"></div>
+            <!--Social Media Links-->
+            <div class="social-media-links">
+                <a href="#"><img src="images/instagram logo.png" class="social-media" alt="instagram-logo"></a>
+                <a href="#"><img src="images/facebook logo.png" class="social-media" alt="facebook-logo"></a>
+                <a href="#"><img src="images/icon-email.png" class="social-media" alt="email"></a>
+            </div>
+            <!--Social Media Links end-->
+            <div class="header-content">
+                <div class="header-content-box">
+                    <div class="firstline"><span class="color">DROD </span>Fashion</div>
+                    <div class="secondline">
+                        It's All About
+                        <span class="txt-rotate color" data-period="1200" data-rotate='[ " Fashion.", " Style.", " DROD." ]'></span>
+                        <span class="slash">|</span>
                     </div>
                 </div>
             </div>
-            <div class="col-sm">
-                <div class="card" style="width: 16rem;">
-                    <div class="card-body">
-                        <h5>Men's fashion</h5>
-                        <a asp-area="" asp-controller="Items" asp-action="Men">
-                            <img src="../images/MenStyle.gif" alt="Pants" style="width:150px; height:150px;">
-                        </a>
+        </div>
+        <!-- The three categories that appear on the main page -->
+        <div class="container d-flex justify-content-center" style="margin-top:1px">
+            <div class="row text-center">
+                <div class="col-sm">
+                    <div class="card" style="width: 16rem;">
+                        <div class="card-body">
+                            <h5>Women's fashion</h5>
+                            <a asp-area="" asp-controller="Items" asp-action="Women">
+                                <img src="../images/WomenStyle.gif" alt="Shirts" style="width:210px; height:150px;">
+                            </a>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-sm">
-                <div class="card" style="width: 16rem;">
-                    <div class="card-body">
-                        <h5>Shoes</h5>
-                        <a asp-area="" asp-controller="Items" asp-action="Shoes">
-                            <img src="../images/shoe.gif" alt="Shoes" style="width:150px; height:150px;">
-                        </a>
+                <div class="col-sm">
+                    <div class="card" style="width: 16rem;">
+                        <div class="card-body">
+                            <h5>Men's fashion</h5>
+                            <a asp-area="" asp-controller="Items" asp-action="Men">
+                                <img src="../images/MenStyle.gif" alt="Pants" style="width:150px; height:150px;">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm">
+                    <div class="card" style="width: 16rem;">
+                        <div class="card-body">
+                            <h5>Shoes</h5>
+                            <a asp-area="" asp-controller="Items" asp-action="Shoes">
+                                <img src="../images/shoe.gif" alt="Shoes" style="width:150px; height:150px;">
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-
-    <!-- Moving sentence -->
-<p style="margin-top:50px"></p>
-<p class="line-1 anim-typewriter" style="color:white">
-    <strong> It's all about FASHION ♡ </strong>
-</p>
-<p style="margin-top:100px"></p>
-
+    <!--all the divisions-->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/particles.js"></script>
+    <script src="js/particles.min.js"></script>
+    <script src="js/index.js"></script>
+    <!--particles script-->
+    <script>
+        particlesJS("particles", { "particles": { "number": { "value": 40, "density": { "enable": true, "value_area": 800 } }, "color": { "value": "#ffffff" }, "shape": { "type": "circle", "stroke": { "width": 0, "color": "#000000" }, "polygon": { "nb_sides": 5 }, "image": { "src": "img/github.svg", "width": 100, "height": 100 } }, "opacity": { "value": 0.5, "random": false, "anim": { "enable": false, "speed": 1, "opacity_min": 0.1, "sync": false } }, "size": { "value": 3, "random": true, "anim": { "enable": false, "speed": 40, "size_min": 0.1, "sync": false } }, "line_linked": { "enable": true, "distance": 150, "color": "#ffffff", "opacity": 0.4, "width": 1 }, "move": { "enable": true, "speed": 6, "direction": "none", "random": false, "straight": false, "out_mode": "out", "bounce": false, "attract": { "enable": false, "rotateX": 600, "rotateY": 1200 } } }, "interactivity": { "detect_on": "canvas", "events": { "onhover": { "enable": true, "mode": "repulse" }, "onclick": { "enable": true, "mode": "push" }, "resize": true }, "modes": { "grab": { "distance": 400, "line_linked": { "opacity": 1 } }, "bubble": { "distance": 400, "size": 40, "duration": 2, "opacity": 8, "speed": 3 }, "repulse": { "distance": 200, "duration": 0.4 }, "push": { "particles_nb": 4 }, "remove": { "particles_nb": 2 } } }, "retina_detect": true });
+    </script>
+    <p style="margin-top:200px"></p>
+</body>
+</html>
