@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DROD.Migrations
 {
     [DbContext(typeof(MvcDRODContext))]
-    [Migration("20201031110635_updateDataBase")]
-    partial class updateDataBase
+    [Migration("20201031143906_updateData")]
+    partial class updateData
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
