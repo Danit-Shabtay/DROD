@@ -25,6 +25,21 @@ namespace DROD.Controllers
             return View();
         }
 
+        // POST: Users/Login
+        [HttpPost]
+        public IActionResult Login(string email, string password) {
+            var user = _context.Users.FirstOrDefault(u => u.Email == email && u.Password == password);
+
+            if (user != null) {
+                // SignIn(account);
+                return RedirectToAction("Index", "Home");
+            }
+
+            // Else display the login page again with an error
+            ViewData["error"] = "Incorrect email or password.";
+            return View();
+        }
+
         // GET: Users
         public async Task<IActionResult> Index()
         {
