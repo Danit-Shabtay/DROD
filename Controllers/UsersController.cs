@@ -40,6 +40,52 @@ namespace DROD.Controllers
             return View();
         }
 
+        // GET: Users/Register
+        public IActionResult Register()
+        {
+            return View();
+        }
+
+        // POST: Users/Register
+        [HttpPost]
+        public async Task<IActionResult> Register(string firstName, string lastName, string email, string genre, string password, string confirmPassword)
+        {
+            // Validates the input data:
+            if (firstName == null || lastName == null || email == null || password == null || confirmPassword == null) {
+                ViewData["error"] = "Please make sure you enter data to all the fields.";
+                return View();
+            }
+
+            // Check if the password matches the repeated one
+            if (password != confirmPassword) {
+                ViewData["error"] = "Passwords don't match.";
+                return View();
+            }
+
+            // Check if account already exists
+            if (_context.Users.FirstOrDefault(u => u.Email == email) != null)
+            {
+                ViewData["error"] = "Email already exists.";
+                return View();
+            }
+
+            Users user = new Users()
+            {
+                FirstName = firstName,
+                LastName = lastName,
+                Email = email,
+                Genre = genre,
+                Password = password,
+                ConfirmPassword = confirmPassword
+            };
+
+            _context.Add(user);
+            await _context.SaveChangesAsync();
+
+            //SignIn(account);
+            return RedirectToAction("Index", "Home");
+        }
+
         // GET: Users
         public async Task<IActionResult> Index()
         {
