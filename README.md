@@ -41,7 +41,8 @@ Head of Data Science Track & Course Instructor [Dr. Shay Horovitz](https://www.l
 ### TODO
 - [X] Create basic project - Models, Controllers, View
 - [X] Database integration using Entity Framework and MS SQL Server
-- [ ] Create login and registration page
+- [X] Add web service integration for whether details 
+- [X] Create login and registration page
 - [ ] Create shopping cart page
 - [ ] Add logic to add items to user cart
 - [ ] Create user statistics view using D3.js
