@@ -9,48 +9,62 @@
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
 <!-- Register Page-->
-<div class="col-lg-5 d-none d-lg-block bg-register-image"></div>
-<div class="col-lg-7">
-    <div class="p-5">
-        <div class="text-center">
-            <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
-        </div>
-        <form class="user" asp-action="Register">
-            @if (ViewData["error"] != null)
-            {
-                <div class="alert alert-danger" role="alert">
-                    @ViewData["error"]
-                </div>
-            }
-            <div class="form-group row">
-                <div class="col-sm-6 mb-3 mb-sm-0">
-                    <input type="text" class="form-control form-control-user" required id="firstName" placeholder="First Name" name="firstName">
-                </div>
-                <div class="col-sm-6">
-                    <input type="text" class="form-control form-control-user" required id="lastName" placeholder="Last Name" name="lastName">
-                </div>
+<div class="row">
+    <div class="col-lg-3">
+        <hr />
+        <!-- Image -->
+        <img src="../images/wisely.JPG" alt="wisely" style="width:280px; height:300px;">
+    </div>
+    <div class="col-lg-6 container d-flex justify-content-center p-1">
+        <div class="p-1 ">
+            <div class="text-center ">
+                <font color="white">
+                    <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
+                </font>
             </div>
-            <div class="form-group">
-                <input type="text" class="form-control form-control-user" required id="inputEmail" placeholder="Email" name="email">
-            </div>
-            <div class="form-group">
-                <input type="text" class="form-control form-control-user" required id="inputGenre" placeholder="Genre" name="genre">
-            </div>
-            <div class="form-group row">
-                <div class="col-sm-6 mb-3 mb-sm-0">
-                    <input type="password" class="form-control form-control-user" required id="inputPassword" placeholder="Password" name="password">
+            <form class="user" asp-action="Register">
+                @if (ViewData["error"] != null)
+                {
+                    <div class="alert alert-danger" role="alert">
+                        @ViewData["error"]
+                    </div>
+                }
+                <div class="form-group row">
+                    <div class="col-sm-6 mb-3 mb-sm-0">
+                        <input type="text" class="form-control form-control-user" required id="firstName" placeholder="First Name" name="firstName">
+                    </div>
+                    <div class="col-sm-6">
+                        <input type="text" class="form-control form-control-user" required id="lastName" placeholder="Last Name" name="lastName">
+                    </div>
                 </div>
-                <div class="col-sm-6">
-                    <input type="password" class="form-control form-control-user" required id="repeatConfirmPassword" placeholder="Confirm Your Password" name="confirmPassword">
+                <div class="form-group">
+                    <input type="text" class="form-control form-control-user" required id="inputEmail" placeholder="Email" name="email">
                 </div>
+                <div class="form-group">
+                    <input type="text" class="form-control form-control-user" required id="inputGenre" placeholder="Genre" name="genre">
+                </div>
+                <div class="form-group row">
+                    <div class="col-sm-6 mb-3 mb-sm-0">
+                        <input type="password" class="form-control form-control-user" required id="inputPassword" placeholder="Password" name="password">
+                    </div>
+                    <div class="col-sm-6">
+                        <input type="password" class="form-control form-control-user" required id="repeatConfirmPassword" placeholder="Confirm Your Password" name="confirmPassword">
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary btn-user btn-block">
+                    Register Account
+                </button>
+            </form>
+            <hr>
+            <div class="text-center">
+                <a class="small" asp-action="Login">Already have an account? Login!</a>
             </div>
-            <button type="submit" class="btn btn-primary btn-user btn-block">
-                Register Account
-            </button>
-        </form>
-        <hr>
-        <div class="text-center">
-            <a class="small" asp-action="Login">Already have an account? Login!</a>
         </div>
     </div>
+    <div class="col-lg-3">
+        <hr />
+        <!-- Image -->
+        <img src="../images/wisely1.JPG" alt="wisely" style="width:280px; height:300px;">
+    </div>
 </div>
+<p style="margin-top:50px"></p>

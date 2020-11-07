@@ -26,6 +26,10 @@ namespace DROD.Controllers
         {
             return View();
         }
+        public IActionResult Weather()
+        {
+            return View();
+        }
         public IActionResult CONTACT()
         {
             return View();
