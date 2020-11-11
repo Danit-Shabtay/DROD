@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using DROD.Data;
 using DROD.Models;
@@ -50,7 +47,7 @@ namespace DROD.Controllers
         [HttpPost]
         public async Task<IActionResult> Register(string firstName, string lastName, string email, string genre, string password, string confirmPassword)
         {
-            // Validates the input data:
+            // Validates the input data
             if (firstName == null || lastName == null || email == null || password == null || confirmPassword == null) {
                 ViewData["error"] = "Please make sure you enter data to all the fields.";
                 return View();

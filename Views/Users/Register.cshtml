@@ -1,6 +1,7 @@
 ﻿@model DROD.Models.Users
 
 @{
+    Layout = "_UsersLayout";
     ViewData["Title"] = "Login";
 }
 
@@ -8,7 +9,7 @@
 <link href="https://fonts.googleapis.com/css?family=Oswald:700|Patua+One|Roboto+Condensed:700" rel="stylesheet">
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
-<!-- Register Page-->
+<!-- Register details-->
 <div class="row">
     <div class="col-lg-3">
     </div>
@@ -20,7 +21,7 @@
                     <h1 class="h4 text-gray-900 mb-4">Create an Account!</h1>
                 </font>
             </div>
-            <form class="user" asp-action="Register">
+            <form class="user" asp-action="Register" autocomplete="off">
                 @if (ViewData["error"] != null)
                 {
                     <div class="alert alert-danger" role="alert">
@@ -67,6 +68,5 @@
             <img src="../images/Pooh1.JPG" alt="Pooh" style="width:550px; height:300px;">
         </div>
     </div>
-    <p style="margin-top:350px"></p>
 </div>
-
+<p style="margin-top:350px"></p>

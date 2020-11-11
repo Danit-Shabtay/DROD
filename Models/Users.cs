@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace DROD.Models
 {
@@ -21,6 +18,7 @@ namespace DROD.Models
 
         [System.ComponentModel.DataAnnotations.Compare("Password")]
         public string ConfirmPassword { get; set; }
+
         public string FullName()
         {
             return this.FirstName + " " + this.LastName;
