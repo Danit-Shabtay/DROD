@@ -37,27 +37,36 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="CONTACT">CONTACT</a>
                         </li>
-                        <li class="nav-item ml-auto">
 
+                        <li class="nav-item ml-auto">
                             <!-- Song -->
                             <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
                             <audio autoplay>
-                              <source src="music/millionDollar.mp3" type="audio/mp3">
-                              Your browser does not support the audio element.
+                                <source src="music/millionDollar.mp3" type="audio/mp3">
+                                Your browser does not support the audio element.
                             </audio>
                             <div class="player">
                                 <div class="playpause">
-                                <i class="play fa fa-play-circle" aria-hidden="true"></i>
-                                <i class="pause fa fa-pause-circle" aria-hidden="true"></i>
+                                    <i class="play fa fa-play-circle" aria-hidden="true"></i>
+                                    <i class="pause fa fa-pause-circle" aria-hidden="true"></i>
                                 </div>
                                 <div class="scrubber">
                                     <div class="bar">
                                         <div class="position-marker"></div>
                                     </div>
-                                    <!-- Login or Register -->
-                                    <a href="http://localhost:56798/users/Login" ;>Login</a> ♡ <a href="http://localhost:56798/users/Register" ;>Register</a>
                                 </div>
                             </div>
+                        </li>
+                        <!-- Login or Register -->
+                        <li class="nav-item ml-auto">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Users" asp-action="Login">Login ♡</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Users" asp-action="Register">Register</a>
+                        </li>
+                        <!-- Cart -->
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="CONTACT"><img src="../images/cart.png" style="display: inline-block;" width="25" height="25" alt="cart-logo"></a>
                         </li>
                     </ul>
                 </div>
