@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using DROD.Models;
@@ -22,19 +18,21 @@ namespace DROD.Controllers
         {
             return View();
         }
+
         public IActionResult Shoes()
         {
             return View();
         }
+
         public IActionResult Weather()
         {
             return View();
         }
+
         public IActionResult CONTACT()
         {
             return View();
         }
-
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
