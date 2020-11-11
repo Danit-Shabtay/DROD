@@ -7,7 +7,6 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
     <link rel="stylesheet" href="~/css/style.css" />
-
 </head>
 <body>
     <header>
@@ -35,14 +34,14 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Weather">WEATHER</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="CONTACT">CONTACT</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Contact">CONTACT</a>
                         </li>
 
                         <li class="nav-item ml-auto">
                             <!-- Song -->
                             <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
                             <audio autoplay>
-                                <source src="music/millionDollar.mp3" type="audio/mp3">
+                                <source src="../music/millionDollar.mp3" type="audio/mp3">
                                 Your browser does not support the audio element.
                             </audio>
                             <div class="player">
@@ -66,7 +65,44 @@
                         </li>
                         <!-- Cart -->
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="CONTACT"><img src="../images/cart.png" style="display: inline-block;" width="25" height="25" alt="cart-logo"></a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Stock Market"><img src="../images/cart.png" style="display: inline-block;" width="25" height="25" alt="cart-logo"></a>
+                        </li>
+
+                       @if (User.IsInRole("Admin"))
+                       {
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="adminNavbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Admin
+                                </a>
+                                <div class="dropdown-menu bg-dark" aria-labelledby="adminNavbarDropdown">
+                                    <a class="nav-link" asp-area="" asp-controller="Users" asp-action="Index">Users</a>
+                                    <a class="nav-link" asp-area="" asp-controller="Order" asp-action="Index">Orders</a>
+                                </div>
+                            </li>
+                       }
+                        @{/*@await Component.InvokeAsync("ShoppingCartSummary")*/}
+                    </ul>
+                </div>
+
+                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                    <ul class="navbar-nav flex-grow-0">
+                        <!-- Nav Item - User Information -->
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600">
+                                    @{
+                                        Console.WriteLine(Context.User.Claims.FirstOrDefault(c => c.Type == "FullName")?.Value);
+                                    }
+                                    Hello @Context.User.Claims.FirstOrDefault(c => c.Type == "FullName")?.Value
+                                </span>
+                            </a>
+                            <!-- Dropdown - User Information -->
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Logout
+                                </a>
+                            </div>
                         </li>
                     </ul>
                 </div>
@@ -81,12 +117,35 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; DROD - Spend your money wisely || Call Us +972 123-456-890 <a asp-area="" asp-controller="Home"></a>
+            &copy; DROD Fashion - Spend your money wisely <a asp-area="" asp-controller="Home"></a>
         </div>
     </footer>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" asp-controller="Users" asp-action="Logout">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @RenderSection("Scripts", required: false)
 </body>
 </html>
+
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/he_IL/sdk.js#xfbml=1&version=v8.0" nonce="sbSH8ekM"></script>

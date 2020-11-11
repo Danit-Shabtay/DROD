@@ -4,6 +4,12 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using DROD.Data;
 using DROD.Models;
+using System.Collections.Generic;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authorization;
 
 namespace DROD.Controllers
 {
@@ -28,13 +34,43 @@ namespace DROD.Controllers
             var user = _context.Users.FirstOrDefault(u => u.Email == email && u.Password == password);
 
             if (user != null) {
-                // SignIn(account);
+                SignIn(user);
                 return RedirectToAction("Index", "Home");
             }
 
             // Else display the login page again with an error
             ViewData["error"] = "Incorrect email or password.";
             return View();
+        }
+
+        private async void SignIn(Users user)
+        {
+            // Create claim object to the session
+            var claims = new List<Claim>
+            {
+                new Claim(ClaimTypes.Email, user.Email),
+                new Claim("FullName", user.FullName()),
+                //new Claim(ClaimTypes.Role, user.Type.ToString()),
+            };
+
+            var claimsIdentity = new ClaimsIdentity(
+                claims, CookieAuthenticationDefaults.AuthenticationScheme);
+
+            var authProperties = new AuthenticationProperties
+            {
+            };
+
+            await HttpContext.SignInAsync(
+                CookieAuthenticationDefaults.AuthenticationScheme,
+                new ClaimsPrincipal(claimsIdentity),
+                authProperties);
+        }
+
+        // GET: Users/Logout
+        public async Task<IActionResult> Logout()
+        {
+            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+            return RedirectToAction("Login");
         }
 
         // GET: Users/Register
@@ -79,17 +115,19 @@ namespace DROD.Controllers
             _context.Add(user);
             await _context.SaveChangesAsync();
 
-            //SignIn(account);
+            SignIn(user);
             return RedirectToAction("Index", "Home");
         }
 
         // GET: Users
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Index()
         {
             return View(await _context.Users.ToListAsync());
         }
 
         // GET: Users/Details/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -108,6 +146,7 @@ namespace DROD.Controllers
         }
 
         // GET: Users/Create
+        [Authorize(Roles = "Admin")]
         public IActionResult Create()
         {
             return View();
@@ -116,9 +155,10 @@ namespace DROD.Controllers
         // POST: Users/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("FirstName,LastName,Id,Email,Age,Genre")] Users users)
+        public async Task<IActionResult> Create([Bind("FirstName,LastName,Id,Email,Genre")] Users users)
         {
             if (ModelState.IsValid)
             {
@@ -130,6 +170,7 @@ namespace DROD.Controllers
         }
 
         // GET: Users/Edit/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -148,9 +189,10 @@ namespace DROD.Controllers
         // POST: Users/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("FirstName,LastName,Id,Email,Age,Genre")] Users users)
+        public async Task<IActionResult> Edit(int id, [Bind("FirstName,LastName,Id,Email,Genre")] Users users)
         {
             if (id != users.Id)
             {
@@ -181,6 +223,7 @@ namespace DROD.Controllers
         }
 
         // GET: Users/Delete/5
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -199,6 +242,7 @@ namespace DROD.Controllers
         }
 
         // POST: Users/Delete/5
+        [Authorize(Roles = "Admin")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

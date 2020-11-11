@@ -2,8 +2,15 @@
 
 namespace DROD.Models
 {
+    public enum UserType
+    {
+        Admin,
+        Customer
+    }
+
     public class Users
     {
+
         public String FirstName { get; set; }
 
         public String LastName { get; set; }
@@ -23,5 +30,7 @@ namespace DROD.Models
         {
             return this.FirstName + " " + this.LastName;
         }
+
+        //public UserType Type { get; set; }
     }
 }

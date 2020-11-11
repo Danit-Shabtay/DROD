@@ -29,7 +29,12 @@ namespace DROD.Controllers
             return View();
         }
 
-        public IActionResult CONTACT()
+        public IActionResult Contact()
+        {
+            return View();
+        }
+
+        public IActionResult StockMarket()
         {
             return View();
         }

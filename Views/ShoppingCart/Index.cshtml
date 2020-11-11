@@ -1,0 +1,53 @@
+﻿@model DROD.ViewModels.ShoppingCartViewModel
+
+@{
+    ViewData["Title"] = "ShoppingCart";
+}
+
+<div class="row checkoutForm">
+    <h2>Your shopping cart</h2>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th>Product</th>
+                <th>Selected amount</th>
+                <th class="text-right">Price</th>
+                <th class="text-right">Subtotal</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var line in Model.ShoppingCart.ShoppingCartItems)
+            {
+                <tr>
+                    <td class="text-left">@line.Items.ItemName</td>
+                    <td class="text-center">@line.Amount</td>
+                    <td class="text-right">@line.Items.Price.ToString("c")</td>
+                    <td class="text-right">
+                        @((line.Amount * line.Items.Price).ToString("c"))
+                    </td>
+                    <td class="text-center">
+                        <a asp-controller="ShoppingCart" asp-action="RemoveFromShoppingCart" asp-route-productId="@line.Items.ID">
+                            <svg width="2em" height="2em" viewBox="0 0 16 16" class="bi bi-x" fill="currentColor" xmlns="http://www.w3.org/2000/svg" asp-controller="ShoppingCart" asp-action="RemoveFromShoppingCart" asp-route-productId="@line.Items.ID">
+                                <path fill-rule="evenodd" d="M11.854 4.146a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708-.708l7-7a.5.5 0 0 1 .708 0z" />
+                                <path fill-rule="evenodd" d="M4.146 4.146a.5.5 0 0 0 0 .708l7 7a.5.5 0 0 0 .708-.708l-7-7a.5.5 0 0 0-.708 0z" />
+                            </svg>
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="3" class="text-right">Total:</td>
+                <td class="text-right">
+                    @Model.ShoppingCartTotal.ToString("c")
+                </td>
+            </tr>
+        </tfoot>
+    </table>
+
+    <a class="btn btn-secondary col-auto mr-auto" asp-controller="Items" asp-action="Index">Continue shopping</a>
+    <a class="btn btn-success col-auto" asp-controller="Order" asp-action="Checkout">Check out</a>
+</div>
