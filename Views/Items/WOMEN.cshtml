@@ -33,6 +33,18 @@
                         @Html.DisplayFor(modelItem => item.ItemName) |
                         @Html.DisplayFor(modelItem => item.Price) $
                     </strong>
+                    <div class="card-footer">
+                        <div class="AddToCart row">
+                            <a class="btn btn-outline-info col-auto mr-auto" id="detailsButton" asp-controller="Users" asp-action="Index">
+                                Details
+                            </a>
+                            <a class="btn btn-success AddToCart col-auto" id="cartButton" href="Users/ShoppingCart/AddToShoppingCart?ItemsID=2">
+                                Add to cart
+                            </a>
+                        </div>
+                        <br />
+                        <hr />
+                    </div>
                 </p>
             </div>
         }

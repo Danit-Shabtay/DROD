@@ -40,7 +40,8 @@
                         <li class="nav-item ml-auto">
                             <!-- Song -->
                             <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-                            <audio autoplay>
+                            @*<audio autoplay>*@
+                            <audio>
                                 <source src="../music/millionDollar.mp3" type="audio/mp3">
                                 Your browser does not support the audio element.
                             </audio>
@@ -65,7 +66,7 @@
                         </li>
                         <!-- Cart -->
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Stock Market"><img src="../images/cart.png" style="display: inline-block;" width="25" height="25" alt="cart-logo"></a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="ShoppingCart" asp-action="Index"><img src="../images/cart.png" style="display: inline-block;" width="25" height="25" alt="cart-logo"></a>
                         </li>
 
                        @if (User.IsInRole("Admin"))
@@ -80,7 +81,7 @@
                                 </div>
                             </li>
                        }
-                        @{/*@await Component.InvokeAsync("ShoppingCartSummary")*/}
+                        @{@await Component.InvokeAsync("ShoppingCartSummary")}
                     </ul>
                 </div>
 
