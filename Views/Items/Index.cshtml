@@ -6,6 +6,7 @@
 <link href="https://fonts.googleapis.com/css?family=Oswald:700|Patua+One|Roboto+Condensed:700" rel="stylesheet">
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
+
 <div class="container" style="color:white;">
     <h1 class="text-center text-uppercase display-4">DROD</h1>
     <hr />
@@ -19,9 +20,9 @@
             <div class="col-auto">
                 <div class="input-group mb-2" name="manufacturer">
                     @Html.DropDownList("gender",
-                                                            new SelectList(Enum.GetValues(typeof(ItemType))),
-                                                            "All",
-                                                            new { @class = "form-control" })
+                                                                 new SelectList(Enum.GetValues(typeof(ItemType))),
+                                                                 "All",
+                                                                 new { @class = "form-control" })
                 </div>
             </div>
             <div class="col-auto">

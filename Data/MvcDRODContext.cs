@@ -15,7 +15,10 @@ namespace DROD.Data
 
         public DbSet<ShoppingCart> Orderss { get; set; }
 
+        public DbSet<OrderDetail> OrderDetail { get; set; }
+
         public DbSet<ShoppingCart> OrderDetails { get; set; }
+
 
         public DbSet<Items> Items { get; set; }
 
@@ -23,22 +26,22 @@ namespace DROD.Data
 
         public DbSet<ShoppingCart> ShoppingCart { get; set; }
 
-        //protected override void OnModelCreating(ModelBuilder modelBuilder)
-        //{
-        //    modelBuilder.Entity<Users>().HasData(new Users
-        //    {
-        //        Id = 1,
-        //        Email = "Danishagan@gmail.com",
-        //        Password = "Aa123456",
-        //        Type = UserType.Admin
-        //    }, new Users
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Users>().HasData(new Users
+            {
+                Id = 1,
+                Email = "Danishagan@gmail.com",
+                Password = "Aa123456",
+                Type = UserType.Admin
+            }, new Users
 
-        //    {
-        //        Id = 2,
-        //        Email = "Ofrimor@gmail.com",
-        //        Password = "Aa123456",
-        //        Type = UserType.Admin
-        //    });
-        //}
+            {
+                Id = 2,
+                Email = "Ofrimor@gmail.com",
+                Password = "Aa123456",
+                Type = UserType.Admin
+            });
+        }
     }
 }

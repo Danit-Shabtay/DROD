@@ -8,7 +8,7 @@ namespace DROD.Models
     {
         public int Id { get; set; }
 
-        public List<Orders> OrderLines { get; set; }
+        public List<OrderDetail> OrderLines { get; set; }
 
         [Required(ErrorMessage = "Please enter your first name")]
         [Display(Name = "First name")]

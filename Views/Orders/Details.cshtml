@@ -2,7 +2,13 @@
 
 @{ ViewData["Title"] = "Orders"; }
 
-<h1 class="text-center text-uppercase display-4">order details</h1>
+<!-- Style -->
+<link href="https://fonts.googleapis.com/css?family=Oswald:700|Patua+One|Roboto+Condensed:700" rel="stylesheet">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+<font color="white">
+    <h1 class="text-center text-uppercase display-4">order details</h1>
+</font>
 <hr />
 
 <div>
@@ -64,34 +70,34 @@
     </dl>
 </div>
 @*<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.OrderLines.First().ProductId)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.OrderLines.First().Amount)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.OrderLines.First().Price)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model.OrderLines)
-        {
+        <thead>
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.ProductId)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Amount)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Price)
-                </td>
+                <th>
+                    @Html.DisplayNameFor(model => model.OrderLines.First().ProductId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.OrderLines.First().Amount)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.OrderLines.First().Price)
+                </th>
+                <th></th>
             </tr>
-        }
-    </tbody>
-</table>*@
+        </thead>
+        <tbody>
+            @foreach (var item in Model.OrderLines)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ProductId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Amount)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Price)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>*@

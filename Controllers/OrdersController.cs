@@ -5,22 +5,56 @@ using Microsoft.EntityFrameworkCore;
 using DROD.Data;
 using DROD.Models;
 using Microsoft.AspNetCore.Authorization;
+using System.Collections.Generic;
+using System;
 
 namespace DROD.Controllers
 {
     public class OrdersController : Controller
     {
         private readonly MvcDRODContext _context;
+        private readonly ShoppingCart _shoppingCart;
 
-        public OrdersController(MvcDRODContext context)
+        public OrdersController(MvcDRODContext context, ShoppingCart shoppingCart)
         {
             _context = context;
+            _shoppingCart = shoppingCart;
         }
 
+
         // GET: Orders
-        public async Task<IActionResult> Index()
+        [Authorize(Roles = "Admin")]
+        public async Task<IActionResult> Index(int itemId, ItemType? type)
         {
-            return View(await _context.Orders.ToListAsync());
+            var orders =
+            from o in _context.Orders
+            join od in _context.OrderDetail on o.Id equals od.OrderId
+            join p in _context.Items on od.ProductId equals p.ID
+            select o;
+
+
+            if (itemId != 0 && type.HasValue)
+            {
+                orders = orders.Where(
+                    o => o.OrderLines.Any(
+                        od => od.ProductId == itemId)).Concat(orders.Where(
+                    o => o.OrderLines.Any(
+                        od => ((Items)od.Items).Gender == type))).Distinct();
+            }
+            else if (itemId != 0)
+            {
+                orders = orders.Where(
+                    o => o.OrderLines.Any(
+                        od => od.ProductId == itemId));
+            }
+            else if (type.HasValue)
+            {
+                orders = orders.Where(
+                    o => o.OrderLines.Any(
+                        od => ((Items)od.Items).Gender == type));
+            }
+
+            return View(await orders.Distinct().ToListAsync());
         }
 
         // GET: Orders/Details/5
@@ -44,6 +78,33 @@ namespace DROD.Controllers
         [Authorize]
         public IActionResult Checkout()
         {
+            return View();
+        }
+
+        [HttpPost]
+        [Authorize]
+        public IActionResult Checkout(Orders orders)
+        {
+            var items = _shoppingCart.GetShoppingCartItems();
+            _shoppingCart.ShoppingCartItems = items;
+
+            if (_shoppingCart.ShoppingCartItems.Count == 0)
+                ModelState.AddModelError("", "Your cart is empty. add some products first");
+
+            if (ModelState.IsValid)
+            {
+                CreateOrder(orders);
+                _shoppingCart.ClearCart();
+                return RedirectToAction("CheckoutComplete");
+            }
+
+            return View(orders);
+        }
+
+        [Authorize]
+        public IActionResult CheckoutComplete()
+        {
+            ViewBag.CheckoutCompleteMessage = "Thanks for your order! ♡";
             return View();
         }
 
@@ -152,6 +213,34 @@ namespace DROD.Controllers
         private bool OrdersExists(int id)
         {
             return _context.Orders.Any(e => e.Id == id);
+        }
+
+
+        [Authorize]
+        private void CreateOrder(Orders orders)
+        {
+            orders.OrderPlaced = DateTime.Now;
+            orders.OrderTotal = _shoppingCart.GetShoppingCartTotal();
+            _context.Orders.Add(orders);
+
+            _context.SaveChanges();
+
+            var shoppingCartItems = _shoppingCart.ShoppingCartItems;
+
+            foreach (var item in shoppingCartItems)
+            {
+                var orderDetail = new OrderDetail
+                {
+                    Amount = item.Amount,
+                    ProductId = item.Items.ID,
+                    OrderId = orders.Id,
+                    Price = item.Items.Price
+                };
+                _context.OrderDetail.Add(orderDetail);
+            }
+
+            _context.SaveChanges();
+
         }
     }
 }
