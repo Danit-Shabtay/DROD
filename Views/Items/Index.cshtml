@@ -1,44 +1,76 @@
 ﻿@model IEnumerable<DROD.Models.Items>
 
-@{
-    ViewData["Title"] = "Index";
-}
+@{ ViewData["Title"] = "Index"; }
 
-<h1>Index</h1>
+<div class="container">
+    <h1 class="text-center text-uppercase display-4">DROD</h1>
+    <hr />
+    <form asp-action="Search" method="get">
+        <div class="form-row align-items-center justify-content-center">
+            <div class="col-auto">
+                <div class="input-group mb-2">
+                    Find your Item:
+                </div>
+            </div>
+            <div class="col-auto">
+                <div class="input-group mb-2" name="manufacturer">
+                    @Html.DropDownList("gender",
+                                                       new SelectList(Enum.GetValues(typeof(ItemType))),
+                                                       "All",
+                                                       new { @class = "form-control" })
+                </div>
+            </div>
+            <div class="col-auto">
+                <div class="input-group mb-2">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">&#8362;</div>
+                    </div>
+                    <input type="text" class="form-control" id="inlineFormInputGroup" name="price" placeholder="Max Price">
+                </div>
+            </div>
+            <div class="col-auto">
+                <button type="submit" class="btn btn-primary mb-2">Search</button>
+            </div>
+        </div>
+    </form>
+    <hr />
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table" style="color:aliceblue;">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.ItemName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Price)
-            </th>
-            <th>
-                Actions
-            </th>
-        </tr>
-    </thead>
-    <tbody>
+    <div class="col-lg-12">
 
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.ItemName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Price)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+        <div class="row">
+            @if (User.IsInRole("Admin"))
+            {
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card h-100 justify-content-center">
+                        <a class="btn" asp-action="Create">
+                            <svg width="20em" height="20em" viewBox="0 0 16 16" class="bi bi-plus" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                                <path fill-rule="evenodd" d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>}
+            @foreach (var item in Model)
+            {
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card h-100">
+                        <a asp-action="Details" asp-route-id="@item.ID"><img class="card-img-top" src="@Url.Content(item.Path)" alt=""></a>
+                        <div class="card-body">
+                            <h4 class="card-title">
+                                <a asp-action="Details" asp-route-id="@item.ID"> @Html.DisplayFor(modelItem => item.ItemName)</a>
+                            </h4>
+                        </div>
+                        <div class="card-footer">
+                            <div class="AddToCart row">
+                                <a class="btn btn-outline-info col-auto mr-auto" id="detailsButton" asp-action="Details" asp-route-Id="@item.ID">
+                                    Details
+                                </a>
+                                <a class="btn btn-success AddToCart col-auto" id="cartButton" asp-controller="ShoppingCart" asp-action="AddToShoppingCart" asp-route-productId="@item.ID">
+                                    Add to cart
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>}
+        </div>
+    </div>
+</div>

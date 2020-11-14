@@ -1,48 +1,97 @@
 ﻿@model DROD.Models.Orders
 
-@{
-    ViewData["Title"] = "Details";
-}
+@{ ViewData["Title"] = "Orders"; }
 
-<h1>Details</h1>
+<h1 class="text-center text-uppercase display-4">order details</h1>
+<hr />
 
 <div>
-    <h4>Orders</h4>
-    <hr />
     <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.OrderId)
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.FirstName)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.OrderId)
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.FirstName)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ItemId)
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.LastName)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ItemId)
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.LastName)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Quantity)
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.AddressLine)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Quantity)
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.AddressLine)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Price)
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ZipCode)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Price)
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ZipCode)
         </dd>
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.Discount)
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.City)
         </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.Discount)
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.City)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.PhoneNumber)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PhoneNumber)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.OrderTotal)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.OrderTotal)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.OrderPlaced)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.OrderPlaced)
         </dd>
     </dl>
 </div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.ID">Edit</a> |
-    <a asp-action="Index">Back to List</a>
-</div>
+@*<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.OrderLines.First().ProductId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OrderLines.First().Amount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.OrderLines.First().Price)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.OrderLines)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ProductId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Amount)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Price)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>*@

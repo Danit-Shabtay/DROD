@@ -1,8 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using DROD.Models;
 using DROD.ViewModels;
 
@@ -20,7 +16,6 @@ namespace DROD.Components
         public IViewComponentResult Invoke()
         {
             var items = _shoppingCart.GetShoppingCartItems();
-            //var items = new List<ShoppingCartItem>() { new ShoppingCartItem(), new ShoppingCartItem() }; // test
             _shoppingCart.ShoppingCartItems = items;
 
             var shoppingCartViewModel = new ShoppingCartViewModel

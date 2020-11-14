@@ -4,21 +4,103 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+<!-- Style -->
+<link href="https://fonts.googleapis.com/css?family=Oswald:700|Patua+One|Roboto+Condensed:700" rel="stylesheet">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
-<div>
-    <h4>Items</h4>
-    <hr />
-    <dl class="row">
-        <dt class = "col-sm-2">
-            @Html.DisplayNameFor(model => model.ItemName)
-        </dt>
-        <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.ItemName)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.ID">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+
+<button class="btn btn-secondary" href="javascript:void(0);" onclick="history.go(-1);">
+    Back
+</button>
+
+
+
+@if (User.IsInRole("Admin"))
+{
+    <div class="dropdown pull-right">
+        <button class="btn btn-danger dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Actions
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <a class="dropdown-item" onclick="location.href='@Url.Action("Edit", "Items",new { ID = Model.ID })'">Edit</a>
+            <a class="dropdown-item" onclick="location.href='@Url.Action("Delete", "Items",new { ID = Model.ID })'">Delete</a>
+        </div>
+    </div>}
+
+<div class="col-lg-12">
+    <div class="card mt-4">
+        <img class="card-img-top img-fluid" src="@Url.Content(Model.Path)" alt="">
+        <div class="card-body">
+            <h3 class="card-title">@Html.DisplayFor(model => model.ItemName)</h3>
+            <h4 class="d-inline">@Html.DisplayFor(model => model.Price)</h4>
+            <h3 class="card-title">@Html.DisplayFor(model => model.Path)</h3>
+            <br />
+            <br />
+            <span class="text-warning">&#9733; &#9733; &#9733; &#9733; &#9733;</span>
+            5.0 stars
+            <a class="btn btn-success AddToCart col-auto pull-right" id="cartButton" asp-controller="ShoppingCart" asp-action="AddToShoppingCart" asp-route-productId="@Model.ID">
+                Add to cart
+            </a>
+        </div>
+    </div>
+
+    <div class="card card-outline-secondary my-4">
+        <div class="card-header">
+            Details
+        </div>
+        <div class="card-body">
+            <form class="form-group" asp-controller="Revies" asp-action="Create">
+                <table class="table table-hover">
+                    <tbody>
+                        <tr>
+                            <th scope="row">ItemName</th>
+                            <td>@Model.ItemName</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Price</th>
+                            <td>@Model.Price</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Gender</th>
+                            <td>@Model.Gender</td>
+                        </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+    @*  <div class="card card-outline-secondary my-4">
+        <div class="card-header">
+            Reviews
+        </div>
+        <div class="card-body">*@
+    @* @foreach (var item in Model.Reviews)
+        {
+            <p>@Html.DisplayFor(modelItem => item.Content)</p>
+            <small class="text-muted">Posted by @Html.DisplayFor(modelItem => item.Author) on @Html.DisplayFor(modelItem => item.Date)</small>
+            @if (item.Positive)
+            {
+                <img src="~/img/happy_emoji.png">
+            }
+            else
+            {
+                <img src="~/img/sad_emoji.png">
+            }
+
+            @if (User.IsInRole("Admin"))
+            {
+                <a class="btn btn-danger btn-sm pull-right" asp-controller="Reviews" asp-action="Delete" asp-route-Id="@item.Id">Delete</a>
+            }
+            <hr>
+        }*@
+    @*         <form class="form-group" asp-controller="Revies" asp-action="Create">
+        <div class="form-group">
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Write your review..." name="content"></textarea>
+        </div>*@
+    @*                <button type="submit" class="btn btn-outline-success" asp-controller="Reviews" asp-action="Create" asp-route-ProductId="@Model.ID">
+            Leave a Review
+        </button>*@
+    @*            </form>
+    *@
+    <!--</div>
+    </div>-->
 </div>

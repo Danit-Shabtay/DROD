@@ -13,11 +13,11 @@ namespace DROD.Data
 
         public DbSet<Orders> Orders { get; set; }
 
+        public DbSet<ShoppingCart> Orderss { get; set; }
+
         public DbSet<ShoppingCart> OrderDetails { get; set; }
 
         public DbSet<Items> Items { get; set; }
-
-        //public object ShoppingCartItems { get; internal set; }
 
         public DbSet<ShoppingCartItem> ShoppingCartItem { get; set; }
 

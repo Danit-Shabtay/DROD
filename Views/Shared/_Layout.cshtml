@@ -59,7 +59,7 @@
                         </li>
                         <!-- Login or Register -->
                         <li class="nav-item ml-auto">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Users" asp-action="Login">Login ♡</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Users" asp-action="Login">Login</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Users" asp-action="Register">Register</a>
@@ -91,9 +91,6 @@
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600">
-                                    @{
-                                        Console.WriteLine(Context.User.Claims.FirstOrDefault(c => c.Type == "FullName")?.Value);
-                                    }
                                     Hello @Context.User.Claims.FirstOrDefault(c => c.Type == "FullName")?.Value
                                 </span>
                             </a>

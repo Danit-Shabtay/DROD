@@ -35,10 +35,10 @@
                     </strong>
                     <div class="card-footer">
                         <div class="AddToCart row">
-                            <a class="btn btn-outline-info col-auto mr-auto" id="detailsButton" asp-controller="Users" asp-action="Index">
+                            <a class="btn btn-outline-info col-auto mr-auto" id="detailsButton" asp-action="Details" asp-route-Id="@item.ID">
                                 Details
                             </a>
-                            <a class="btn btn-success AddToCart col-auto" id="cartButton" href="Users/ShoppingCart/AddToShoppingCart?ItemsID=2">
+                            <a class="btn btn-success AddToCart col-auto" id="cartButton" asp-controller="ShoppingCart" asp-action="AddToShoppingCart" asp-route-productId="@item.ID">
                                 Add to cart
                             </a>
                         </div>

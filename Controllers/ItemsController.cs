@@ -50,7 +50,7 @@ namespace DROD.Controllers
             return View(shoesItems);
         }
 
-        // GET: Items/Details/5
+        // GET: Items/Details/id
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)

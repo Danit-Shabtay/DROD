@@ -31,7 +31,7 @@ namespace DROD.Controllers
             }
 
             var orders = await _context.Orders
-                .FirstOrDefaultAsync(m => m.ID == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (orders == null)
             {
                 return NotFound();
@@ -85,7 +85,7 @@ namespace DROD.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("ID,OrderId,ItemId,Quantity,Price,Discount")] Orders orders)
         {
-            if (id != orders.ID)
+            if (id != orders.Id)
             {
                 return NotFound();
             }
@@ -99,7 +99,7 @@ namespace DROD.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!OrdersExists(orders.ID))
+                    if (!OrdersExists(orders.Id))
                     {
                         return NotFound();
                     }
@@ -122,7 +122,7 @@ namespace DROD.Controllers
             }
 
             var orders = await _context.Orders
-                .FirstOrDefaultAsync(m => m.ID == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (orders == null)
             {
                 return NotFound();
@@ -144,7 +144,7 @@ namespace DROD.Controllers
 
         private bool OrdersExists(int id)
         {
-            return _context.Orders.Any(e => e.ID == id);
+            return _context.Orders.Any(e => e.Id == id);
         }
     }
 }

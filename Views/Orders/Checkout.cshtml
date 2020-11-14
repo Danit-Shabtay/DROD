@@ -1,0 +1,112 @@
+﻿@model Orders
+
+@{
+    ViewData["Title"] = "Checkout";
+}
+
+<div class="container">
+    <div class="text-center">
+        <h2>Checkout</h2>
+        <p class="lead">
+            You are just one step away from ordering your products!
+        </p>
+    </div>
+    <div class="row orderForm">
+        <form asp-action="Checkout" method="post" class="col-md-12 order-md-1" role="form">
+            <div class="col-md-12 order-md-1">
+                <h4 class="mb-3">Billing information</h4>
+                <div class="row">
+                    <div class="form-group col-md-6 mb-3">
+                        <label asp-for="FirstName"></label>
+                        <input asp-for="FirstName" class="form-control" />
+                        <span asp-validation-for="FirstName" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="LastName"></label>
+                        <input asp-for="LastName" class="form-control" />
+                        <span asp-validation-for="LastName" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Email"></label>
+                    <input asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="AddressLine"></label>
+                    <input asp-for="AddressLine" class="form-control" />
+                    <span asp-validation-for="AddressLine" class="text-danger"></span>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="City"></label>
+                        <input asp-for="City" class="form-control" />
+                        <span asp-validation-for="City" class="text-danger"></span>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label asp-for="ZipCode"></label>
+                        <input asp-for="ZipCode" class="form-control" />
+                        <span asp-validation-for="ZipCode" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="PhoneNumber"></label>
+                    <input asp-for="PhoneNumber" class="form-control" />
+                    <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+                </div>
+
+                <hr class="mb-4">
+
+                <h4 class="mb-3">Payment</h4>
+
+                <div class="d-block my-3">
+                    <div class="custom-control custom-radio">
+                        <input id="credit" name="paymentMethod" type="radio" class="custom-control-input" checked required>
+                        <label class="custom-control-label" for="credit">Credit card</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mb-3">
+                        <label for="cc-name">Name on card</label>
+                        <input type="text" class="form-control" id="cc-name" placeholder="" required>
+                        <small class="text-muted">Full name as displayed on card</small>
+                        <div class="invalid-feedback">
+                            Name on card is required
+                        </div>
+                    </div>
+                    <div class="col-md-6 mb-3">
+                        <label for="cc-number">Credit card number</label>
+                        <input type="text" class="form-control" id="cc-number" placeholder="" required>
+                        <div class="invalid-feedback">
+                            Credit card number is required
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3 mb-3">
+                        <label for="cc-expiration">Expiration</label>
+                        <input type="text" class="form-control" id="cc-expiration" placeholder="" required>
+                        <div class="invalid-feedback">
+                            Expiration date required
+                        </div>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <label for="cc-cvv">CVV</label>
+                        <input type="text" class="form-control" id="cc-cvv" placeholder="" required>
+                        <div class="invalid-feedback">
+                            Security code required
+                        </div>
+                    </div>
+                </div>
+
+                <hr class="mb-4">
+
+                <input class="btn btn-primary btn-lg btn-block" type="submit" value="Complete order" href="#" />
+            </div>
+        </form>
+    </div>
+</div>

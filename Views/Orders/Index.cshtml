@@ -1,59 +1,96 @@
 ﻿@model IEnumerable<DROD.Models.Orders>
 
-@{
-    ViewData["Title"] = "Index";
-}
+@{ ViewData["Title"] = "Orders"; }
 
-<h1>Index</h1>
+<div class="container">
+    <h1 class="text-center text-uppercase display-4">orders</h1>
+    <hr />
+    <form asp-action="Index" method="get">
+        <div class="form-row align-items-center justify-content-center">
+            <div class="col-auto">
+                <div class="input-group mb-2">
+                    Filter Orders By:
+                </div>
+            </div>
+            <div class="col-auto">
+                <div class="input-group mb-2">
+                    <input type="text" class="form-control" id="inlineFormInputGroup" name="ProductId" placeholder="Product Id">
+                </div>
+            </div>
+            <div class="col-auto">
+                <div class="input-group">
+                    <div class="input-group mb-2" name="itemType">
+                        @Html.DropDownList("itemType",
+                                      new SelectList(Enum.GetValues(typeof(ItemType))),
+                                      "All",
+                                      new { @class = "form-control" })
+                    </div>
+                </div>
+            </div>
+            <div class="col-auto">
+                <button type="submit" class="btn btn-primary mb-2">Filter</button>
+            </div>
+        </div>
+    </form>
+    <hr />
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.OrderId)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.ItemId)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Quantity)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Price)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Discount)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.OrderId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ItemId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Quantity)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Price)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Discount)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.FirstName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.LastName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AddressLine)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.ZipCode)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.City)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.PhoneNumber)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Email)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FirstName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LastName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.AddressLine)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.ZipCode)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.City)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.PhoneNumber)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Email)
+                    </td>
+                    <td>
+                        <a asp-action="Details" asp-route-id="@item.Id"><img src="~/img/details_icon.jpg" width="36" height="36" /></a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
