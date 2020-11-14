@@ -8,16 +8,13 @@
 <link href="https://fonts.googleapis.com/css?family=Oswald:700|Patua+One|Roboto+Condensed:700" rel="stylesheet">
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
-
 <button class="btn btn-secondary" href="javascript:void(0);" onclick="history.go(-1);">
     Back
 </button>
 
-
-
 @if (User.IsInRole("Admin"))
 {
-    <div class="dropdown pull-right">
+    <div class="dropdown pull-right" style="color:white;">
         <button class="btn btn-danger dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Actions
         </button>
@@ -27,7 +24,7 @@
         </div>
     </div>}
 
-<div class="col-lg-12">
+<div class="col-lg-12" style="color:white;">
     <div class="card mt-4">
         <img class="card-img-top img-fluid" src="@Url.Content(Model.Path)" alt="">
         <div class="card-body">

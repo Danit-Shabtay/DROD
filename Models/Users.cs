@@ -31,6 +31,6 @@ namespace DROD.Models
             return this.FirstName + " " + this.LastName;
         }
 
-        //public UserType Type { get; set; }
+        public UserType Type { get; set; }
     }
 }

@@ -50,7 +50,7 @@ namespace DROD.Controllers
             {
                 new Claim(ClaimTypes.Email, user.Email),
                 new Claim("FullName", user.FullName()),
-                //new Claim(ClaimTypes.Role, user.Type.ToString()),
+                new Claim(ClaimTypes.Role, user.Type.ToString())
             };
 
             var claimsIdentity = new ClaimsIdentity(

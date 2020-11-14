@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using DROD.Data;
 using DROD.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace DROD.Controllers
 {
@@ -38,6 +39,12 @@ namespace DROD.Controllers
             }
 
             return View(orders);
+        }
+
+        [Authorize]
+        public IActionResult Checkout()
+        {
+            return View();
         }
 
         // GET: Orders/Create
