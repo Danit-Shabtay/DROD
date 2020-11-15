@@ -45,9 +45,9 @@ Head of Data Science Track & Course Instructor [Dr. Shay Horovitz](https://www.l
 - [X] Create login and registration page
 - [X] Create shopping cart page
 - [X] Add logic to add items to user cart
-- [ ] Create user statistics view using D3.js
-- [ ] Integration with Google maps API for displaying user locations
-- [ ] Integration with Facebook API for login and registration
-- [ ] Learn users statistics and provide recommendations 
+- [X] Create user statistics view using D3.js
+- [X] Integration with Google maps API for displaying user locations
+- [X] Integration with Facebook API for login and registration
+- [X] View statistics of orders quantity and best-selling products
 
 ---

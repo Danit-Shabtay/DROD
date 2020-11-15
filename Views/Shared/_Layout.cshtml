@@ -70,8 +70,8 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="ShoppingCart" asp-action="Index"><img src="../images/cart.png" style="display: inline-block;" width="25" height="25" alt="cart-logo"></a>
                         </li>
 
-                       @if (User.IsInRole("Admin"))
-                       {
+                        @if (User.IsInRole("Admin"))
+                        {
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="adminNavbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Admin
@@ -82,7 +82,7 @@
                                     <a class="nav-link" asp-area="" asp-controller="Orders" asp-action="Index">Orders</a>
                                 </div>
                             </li>
-                       }
+                        }
                         @{@await Component.InvokeAsync("ShoppingCartSummary")}
                     </ul>
                 </div>
@@ -118,6 +118,7 @@
     <footer class="border-top footer text-muted">
         <div class="container">
             &copy; DROD Fashion - Spend your money wisely <a asp-area="" asp-controller="Home"></a>
+            <iframe class="pull-right m-2" src="https://www.facebook.com/plugins/share_button.php?href=https://www.facebook.com/DROD-104628328105650%2F&layout=button_count&size=large&appId=2735482506727723&width=88&height=28" width="88" height="28" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
         </div>
     </footer>
 
