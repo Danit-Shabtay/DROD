@@ -4,8 +4,9 @@ namespace DROD.Models
 {
     public enum UserType
     {
-        Admin,
-        Customer
+        Customer,
+        Admin
+
     }
 
     public class Users

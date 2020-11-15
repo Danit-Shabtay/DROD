@@ -12,35 +12,6 @@
     </font>
     <hr />
 
-    <form asp-action="Index" method="get">
-        <div class="form-row align-items-center justify-content-center" style="color:white;">
-            <div class="col-auto">
-                <div class="input-group mb-2">
-                    Filter Orders By:
-                </div>
-            </div>
-            <div class="col-auto">
-                <div class="input-group mb-2">
-                    <input type="text" class="form-control" id="inlineFormInputGroup" name="ProductId" placeholder="Product Id">
-                </div>
-            </div>
-            <div class="col-auto">
-                <div class="input-group">
-                    <div class="input-group mb-2" name="itemType">
-                        @Html.DropDownList("itemType",
-                                      new SelectList(Enum.GetValues(typeof(ItemType))),
-                                      "All",
-                                      new { @class = "form-control" })
-                    </div>
-                </div>
-            </div>
-            <div class="col-auto">
-                <button type="submit" class="btn btn-primary mb-2">Filter</button>
-            </div>
-        </div>
-    </form>
-    <hr />
-
     <table class="table" style="color:white;">
         <thead>
             <tr>
@@ -94,7 +65,7 @@
                         @Html.DisplayFor(modelItem => item.Email)
                     </td>
                     <td>
-                        <a asp-action="Details" asp-route-id="@item.Id"><img src="~/img/details_icon.jpg" width="36" height="36" /></a>
+                        <a asp-action="Details" asp-route-id="@item.Id"><img src="../images/Order.jpg" width="36" height="36" /></a>
                     </td>
                 </tr>
             }
