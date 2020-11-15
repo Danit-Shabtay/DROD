@@ -1,10 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using DROD.Data;
 using DROD.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace DROD.Controllers
 {
@@ -173,6 +175,29 @@ namespace DROD.Controllers
         private bool ItemsExists(int id)
         {
             return _context.Items.Any(e => e.ID == id);
+        }
+
+        [Authorize]
+        public async Task<IActionResult> Search(string gender, int? price) {
+            if (gender == "All" && price == null) {
+                return RedirectToAction("Index");
+            }
+
+            var results = from items in _context.Items select items;
+
+            ItemType type;
+
+            if(gender != null) {
+                type = (ItemType)Enum.Parse(typeof(ItemType), gender);
+                results = results.Where(item => item.Gender.Equals(type));
+            }
+
+            if(price != null)
+            {
+                results = results.Where(item => item.Price < price);
+            }
+
+            return View("Index", await results.ToListAsync());
         }
     }
 }

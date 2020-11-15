@@ -19,10 +19,8 @@
             </div>
             <div class="col-auto">
                 <div class="input-group mb-2" name="manufacturer">
-                    @Html.DropDownList("gender",
-                                                                 new SelectList(Enum.GetValues(typeof(ItemType))),
-                                                                 "All",
-                                                                 new { @class = "form-control" })
+                    @Html.DropDownList("gender", new SelectList(Enum.GetValues(typeof(ItemType))),
+                   "All", new { @class = "form-control" })
                 </div>
             </div>
             <div class="col-auto">

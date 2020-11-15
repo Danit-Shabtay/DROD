@@ -234,7 +234,8 @@ namespace DROD.Controllers
                     Amount = item.Amount,
                     ProductId = item.Items.ID,
                     OrderId = orders.Id,
-                    Price = item.Items.Price
+                    Price = item.Items.Price,
+                    //ItemsID =
                 };
                 _context.OrderDetail.Add(orderDetail);
             }
