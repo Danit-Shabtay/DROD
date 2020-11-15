@@ -3,14 +3,16 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
 
-<h1 class="text-center text-uppercase display-4">statistics</h1>
+<h1 class="text-center text-uppercase display-4" style="color:white">
+    statistics
+</h1>
 <hr />
 
 <!-- Load d3.js -->
 <script src="https://d3js.org/d3.v4.js"></script>
 
 <!-- Create a div where the graph will take place -->
-<div class="container">
+<div class="container" style="color:white">
     <div class="row justify-content-center">
         <div class="col-auto">
             <h2 class="text-center">Best Seller Products</h2>
@@ -72,6 +74,7 @@
         .attr("stroke", "black")
         .style("stroke-width", "2px")
         .style("opacity", 0.7)
+        .style("fill", "pink");
 
     // Now add the annotation. Use the centroid method to get the best coordinates
     svg
@@ -114,14 +117,17 @@
         .attr("transform", "translate(0," + height + ")")
         .call(d3.axisBottom(x))
         .selectAll("text")
-        .style("text-anchor", "end");
+        .style("text-anchor", "end")
+        .style("fill", "pink");
 
     // Add Y axis
     var y = d3.scaleLinear()
-        .domain([0, d3.max(data, function(d, i) { return d.count })])
+        .domain([0, d3.max(data, function (d, i) { return d.count })])
         .range([height, 0]);
+
     svg.append("g")
-        .call(d3.axisLeft(y));
+        .call(d3.axisLeft(y))
+        .style("fill", "pink");
 
     // Bars
     svg.selectAll("mybar")
@@ -133,4 +139,5 @@
         .attr("width", x.bandwidth())
         .attr("height", function (d,i) { return height - y(d.count); })
         .attr("fill", "#69b3a2")
+        .style("fill", "pink");
 </script>
