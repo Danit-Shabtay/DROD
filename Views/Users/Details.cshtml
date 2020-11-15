@@ -4,11 +4,20 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
+<!-- Style -->
+<link href="https://fonts.googleapis.com/css?family=Oswald:700|Patua+One|Roboto+Condensed:700" rel="stylesheet">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+
+<font color="white">
+    <h1>Details</h1>
+</font>
 
 <div>
-    <h4>Users</h4>
+    <font color="white">
+        <h4>Users</h4>
+    </font>
     <hr />
+
     <dl class="row" style="color:white;">
         <dt class="col-sm-2">
             @Html.DisplayNameFor(model => model.FirstName)
@@ -47,11 +56,11 @@
             @Html.DisplayFor(model => model.ConfirmPassword)
         </dd>
         @*<dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Type)
-        </dt>
-        <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Type)
-        </dd>*@
+                @Html.DisplayNameFor(model => model.Type)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Type)
+            </dd>*@
     </dl>
 </div>
 <div>
