@@ -3,10 +3,6 @@
 ## Online Shopping App
 :moneybag: :moneybag: :moneybag:
 
-<p align="left">
-<img src="https://img.shields.io/badge/status-InProgress-yellow.svg">
-</p>
-
 
 ### Background
 Final project in Web application development course
