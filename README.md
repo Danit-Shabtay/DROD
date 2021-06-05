@@ -1,7 +1,6 @@
-<div align="center"> <img src="DROD1.png" height='80' width='190'></div>
+﻿<div align="center"> <img src="DROD1.png" height='80' width='190'></div>
 
-## Online Shopping App
-:moneybag: :moneybag: :moneybag:
+## Online Shopping App 💰🛍️
 
 
 ### Background
@@ -25,7 +24,7 @@ D3.js           |                |
 ---
 
 ### Demo
-<img src="DROD1.gif" width=700>
+<img src="DROD1.gif" height=370 width=700>
 
 ---
 
